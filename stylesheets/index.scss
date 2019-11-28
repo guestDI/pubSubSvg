@@ -1,0 +1,45 @@
+$primaryColor: rgb(77, 76, 76);
+
+* {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  max-width: 1024px;
+  margin: auto;
+}
+
+.container {
+  display: flex;
+  min-height: 50%;
+
+  &:first-child {
+    border-bottom: 1px solid $primaryColor;
+  }
+}
+
+.button-group {
+  display: flex;
+  flex-direction: row;
+  padding: 10px 5px;
+  width: 30%;
+  justify-content: space-between;
+
+  .btn {
+    padding: 7px;
+    border: 1px solid $primaryColor;
+    border-radius: 3px;
+    outline: none;
+    font-weight: 600;
+    background-color: white;
+    color: $primaryColor;
+
+    &:hover {
+      cursor: pointer;
+      background-color: cornflowerblue;
+      color: white;
+      border-color: white;
+    }
+  }
+}

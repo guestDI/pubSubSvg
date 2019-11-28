@@ -1,3 +1,6 @@
+import './index.html';
+import './stylesheets/index.scss';
+
 import {
     publishEvent
 } from "./src/lineChart";
