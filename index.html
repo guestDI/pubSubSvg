@@ -7,11 +7,63 @@
     <title>Page Title</title>
     <link rel="stylesheet">
     <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <script src='bundle.js'></script>
+    <script src='bundle.js' type='text/javascript'></script>
 </head>
 
 <body>
-    <div class="container">
+    <div class="container chart-group-wrapper">
+        <div>
+            <svg version="1.2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                viewBox="0 0 1000 500" class="graph" aria-labelledby="title" role="img">
+                <title id="title">A line chart showing income during year</title>
+                <g class="grid x-grid" id="xGrid">
+                    <line x1="90" x2="1000" y1="370" y2="370"></line>
+                </g>
+                <g class="grid y-grid" id="yGrid">
+                    <line x1="90" x2="90" y1="0" y2="370"></line>
+                </g>
+                <g class="labels x-labels">
+                    <text x="80" y="400">Jan</text>
+                    <text x="160" y="400">Feb</text>
+                    <text x="240" y="400">Mar</text>
+                    <text x="320" y="400">Apr</text>
+                    <text x="400" y="400">May</text>
+                    <text x="480" y="400">Jun</text>
+                    <text x="560" y="400">Jul</text>
+                    <text x="640" y="400">Aug</text>
+                    <text x="720" y="400">Sep</text>
+                    <text x="800" y="400">Oct</text>
+                    <text x="880" y="400">Nov</text>
+                    <text x="960" y="400">Dec</text>
+                    <text x="500" y="440" class="label-title">Month</text>
+                </g>
+                <g class="labels y-labels">
+                    <text x="85" y="20">50</text>
+                    <text x="85" y="90">40</text>
+                    <text x="85" y="160">30</text>
+                    <text x="85" y="230">20</text>
+                    <text x="85" y="300">10</text>
+                    <text x="85" y="370">0</text>
+                    <text x="60" y="200" class="label-title">Income</text>
+                </g>
+                <polyline fill="none" stroke="red" stroke-width="2"
+                    points="90,318 160,265 240,230 320,160 400,195 480,90 560,90 640,20 720,90 800,95 880,230 960,195" />
+                <g class="data" data-setname="Data set">
+                    <circle cx="90" cy="318" data-value="7" r="3"></circle>
+                    <circle cx="160" cy="265" data-value="15" r="3"></circle>
+                    <circle cx="240" cy="230" data-value="20" r="3"></circle>
+                    <circle cx="320" cy="160" data-value="30" r="3"></circle>
+                    <circle cx="400" cy="195" data-value="25" r="3"></circle>
+                    <circle cx="480" cy="90" data-value="40" r="3"></circle>
+                    <circle cx="560" cy="90" data-value="40" r="3"></circle>
+                    <circle cx="640" cy="20" data-value="50" r="3"></circle>
+                    <circle cx="720" cy="90" data-value="40" r="3"></circle>
+                    <circle cx="800" cy="95" data-value="37" r="3"></circle>
+                    <circle cx="880" cy="230" data-value="20" r="3"></circle>
+                    <circle cx="960" cy="195" data-value="25" r="3"></circle>
+                </g>
+            </svg>
+        </div>
         <div class="button-group">
             <input class="btn" type="button" value="Current Year" />
             <input class="btn" type="button" value="Previous Year" />
@@ -22,7 +74,11 @@
     <div class="container">
         <div></div>
         <div></div>
-        <div></div>
+        <div class="chart-wrapper">
+            <svg width="200" height="200" class="pie-chart">
+                <circle r="50" cx="100" cy="100" class="pie" />
+            </svg>
+        </div>
     </div>
 </body>
 

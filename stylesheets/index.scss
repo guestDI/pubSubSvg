@@ -6,7 +6,7 @@ $primaryColor: rgb(77, 76, 76);
 }
 
 body {
-  max-width: 1024px;
+  max-width: 1200px;
   margin: auto;
 }
 
@@ -19,11 +19,58 @@ body {
   }
 }
 
+.chart-group-wrapper {
+  flex-direction: column;
+  align-items: center;
+}
+
+.graph .labels.x-labels {
+  text-anchor: middle;
+}
+
+.graph .labels.y-labels {
+  text-anchor: end;
+}
+
+.graph {
+  height: 500px;
+  width: 1000px;
+  margin-top: 20px;
+}
+
+.graph .grid {
+  stroke: #ccc;
+  stroke-dasharray: 0;
+  stroke-width: 1;
+}
+
+.labels {
+  font-size: 13px;
+}
+
+.label-title {
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 12px;
+  fill: black;
+}
+
+.data {
+  fill: red;
+  stroke-width: 2;
+
+  circle {
+    .active {
+      transform: scale(2);
+    }
+  }
+}
+
 .button-group {
   display: flex;
   flex-direction: row;
   padding: 10px 5px;
-  width: 30%;
+  width: 50%;
   justify-content: space-between;
 
   .btn {
@@ -41,5 +88,25 @@ body {
       color: white;
       border-color: white;
     }
+  }
+}
+
+.chart-wrapper {
+  padding: 20px 0;
+}
+
+.pie-chart {
+  margin: 0 auto;
+  transform: rotate(-90deg);
+  background: #ddd;
+  border-radius: 50%;
+  display: block;
+
+  .pie {
+    fill: #ddd;
+    stroke: $primaryColor;
+    stroke-width: 100;
+    stroke-dasharray: 0 158;
+    transition: stroke-dasharray .3s ease;
   }
 }
