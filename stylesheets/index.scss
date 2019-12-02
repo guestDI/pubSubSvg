@@ -13,6 +13,7 @@ body {
 .container {
   display: flex;
   min-height: 50%;
+  justify-content: space-between;
 
   &:first-child {
     border-bottom: 1px solid $primaryColor;
@@ -33,15 +34,13 @@ body {
 }
 
 .graph {
-  height: 500px;
-  width: 1000px;
   margin-top: 20px;
 }
 
 .graph .grid {
-  stroke: #ccc;
+  stroke: black;
   stroke-dasharray: 0;
-  stroke-width: 1;
+  stroke-width: 2;
 }
 
 .labels {
@@ -57,19 +56,17 @@ body {
 
 .data {
   fill: red;
-  stroke-width: 2;
+  stroke-width: 10;
 
-  circle {
-    .active {
-      transform: scale(2);
-    }
+  circle:hover {
+    cursor: pointer;
   }
 }
 
 .button-group {
   display: flex;
   flex-direction: row;
-  padding: 10px 5px;
+  padding: 5px 5px;
   width: 50%;
   justify-content: space-between;
 
@@ -93,10 +90,10 @@ body {
 
 .chart-wrapper {
   padding: 20px 0;
+  width: 30%;
 }
 
 .pie-chart {
-  margin: 0 auto;
   transform: rotate(-90deg);
   background: #ddd;
   border-radius: 50%;
@@ -109,4 +106,9 @@ body {
     stroke-dasharray: 0 158;
     transition: stroke-dasharray .3s ease;
   }
+}
+
+.bar {
+  fill: #a9a9a9;
+  opacity: 0.6;
 }

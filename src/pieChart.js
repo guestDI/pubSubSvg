@@ -24,7 +24,6 @@ const numberFixer = function (num) {
 }
 
 subscribe("onClick", data => {
-    console.log(data)
     setPieChart(data);
 });
 
