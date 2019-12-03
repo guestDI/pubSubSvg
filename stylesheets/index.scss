@@ -97,14 +97,15 @@ body {
   transform: rotate(-90deg);
   background: #ddd;
   border-radius: 50%;
-  display: block;
+  // display: block;
 
   .pie {
     fill: #ddd;
-    stroke: $primaryColor;
-    stroke-width: 100;
-    stroke-dasharray: 0 158;
-    transition: stroke-dasharray .3s ease;
+    // stroke: $primaryColor;
+    // stroke-width: 100;
+    // stroke-dasharray: 0 158;
+    // stroke-dashoffset: 50;
+    transition: stroke-dasharray 0.3s ease;
   }
 }
 
@@ -112,3 +113,31 @@ body {
   fill: #a9a9a9;
   opacity: 0.6;
 }
+
+// .line {
+//   animation: change_fill 1s, popup 2s;
+// }
+
+// @keyframes reduce_radius {
+//   from {
+//     stroke-width: 2;
+//   }
+
+//   to {
+//     stroke-width: 20;
+//   }
+// }
+
+// @keyframes change_fill {
+//   0% {
+//     stroke: #49549E;
+//   }
+
+//   75% {
+//     stroke: #1bceb1;
+//   }
+
+//   100% {
+//     stroke: #1bce4f;
+//   }
+// }
