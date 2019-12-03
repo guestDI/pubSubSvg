@@ -16,21 +16,7 @@ function LineChartIn() {
     this.lineDots = [];
     this.line;
 
-    const _this = this;
-    Object.setPrototypeOf(LineChartIn.prototype, Chart.prototype);
-
-    LineChartIn.prototype.init = function () {
-        this.lineChart = document.querySelector(".line-chart");
-        this.lineChartData = document.querySelector(".line-chart > .data");
-
-        const buttons = document.querySelectorAll(".button-group > .btn");
-
-        buttons.forEach(button => {
-            button.addEventListener("click", onButtonClick.bind(this));
-        });
-    };
-
-    function onButtonClick(event) {
+    this.onButtonClick = function (event) {
         const data =
             event.target.value === "Credit" ?
             lineCoordinates.credit :
@@ -39,18 +25,18 @@ function LineChartIn() {
             event.target.value === "Total Income" ?
             lineCoordinates.income :
             lineCoordinates.expenses;
-        draw(data);
+        this.draw(data);
     }
 
-    function draw(data) {
-        if (_this.lineDots.length) {
-            _this.lineDots.forEach((dot, index) => {
+    this.draw = function (data) {
+        if (this.lineDots.length) {
+            this.lineDots.forEach((dot, index) => {
                 dot.setAttribute("cx", data[index]["x"]);
                 dot.setAttribute("cy", data[index]["y"]);
                 dot.setAttribute("data-value", data[index]["x"]);
-                _this.lineDots[index] = dot;
+                this.lineDots[index] = dot;
             });
-            _this.line.setAttribute("d", `M${transformCoordinatesToString(data)}`);
+            this.line.setAttribute("d", `M${transformCoordinatesToString(data)}`);
         } else {
             data.forEach(d => {
                 const dot = document.createElementNS(
@@ -62,9 +48,9 @@ function LineChartIn() {
                 dot.setAttribute("r", 10);
                 dot.setAttribute("data-value", d["x"]);
                 dot.setAttribute("style", "transition: 0.3s all;");
-                _this.lineChartData.appendChild(dot);
-                dot.addEventListener("click", onDotClick);
-                _this.lineDots.push(dot);
+                this.lineChartData.appendChild(dot);
+                dot.addEventListener("click", this.onDotClick);
+                this.lineDots.push(dot);
             });
 
             const path = document.createElementNS(
@@ -76,14 +62,27 @@ function LineChartIn() {
             path.setAttribute("stroke-width", "2");
             path.setAttribute("d", `M${transformCoordinatesToString(data)}`);
 
-            _this.lineChart.appendChild(path);
-            _this.line = path;
+            this.lineChart.appendChild(path);
+            this.line = path;
         }
     }
 
-    function onDotClick(event) {
+    this.onDotClick = function (event) {
         publish("onClick", event.target.dataset.value);
     }
 }
+
+LineChartIn.prototype = Object.create(Chart.prototype);
+
+LineChartIn.prototype.init = function () {
+    this.lineChart = document.querySelector(".line-chart");
+    this.lineChartData = document.querySelector(".line-chart > .data");
+
+    const buttons = document.querySelectorAll(".button-group > .btn");
+
+    buttons.forEach(button => {
+        button.addEventListener("click", this.onButtonClick.bind(this));
+    });
+};
 
 export default LineChartIn;
