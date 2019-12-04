@@ -12,6 +12,7 @@ function BarChart() {
   this.barChartElems = [];
 
   this.draw = function (data) {
+    Chart.prototype.draw.call(this, 'BarChart');
     let currentX = 21;
     if (this.barChartElems.length) {
       this.barChartElems.forEach((bar, index) => {

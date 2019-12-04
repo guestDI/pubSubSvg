@@ -1,11 +1,11 @@
 function Chart() {}
 
-Chart.prototype.draw = function () {
-  console.log(1);
+Chart.prototype.draw = function (args) {
+  console.log('Draw method in ' + args + ' class');
 };
 
 Chart.prototype.init = function () {
-  console.log(1);
+
 };
 
 export default Chart;

@@ -9,6 +9,8 @@ import {
     transformCoordinatesToString
 } from './helpers/helpers';
 
+const radius = 5;
+
 function LineChartIn() {
     Chart.call(this);
     this.lineChart;
@@ -29,6 +31,7 @@ function LineChartIn() {
     }
 
     this.draw = function (data) {
+        Chart.prototype.draw.call(this, 'LineChart');
         if (this.lineDots.length) {
             this.lineDots.forEach((dot, index) => {
                 dot.setAttribute("cx", data[index]["x"]);
@@ -45,9 +48,8 @@ function LineChartIn() {
                 );
                 dot.setAttribute("cx", d["x"]);
                 dot.setAttribute("cy", d["y"]);
-                dot.setAttribute("r", 10);
+                dot.setAttribute("r", radius);
                 dot.setAttribute("data-value", d["x"]);
-                dot.setAttribute("style", "transition: 0.3s all;");
                 this.lineChartData.appendChild(dot);
                 dot.addEventListener("click", this.onDotClick);
                 this.lineDots.push(dot);
@@ -57,9 +59,6 @@ function LineChartIn() {
                 "http://www.w3.org/2000/svg",
                 "path"
             );
-            path.setAttribute("fill", "none");
-            path.setAttribute("stroke", "red");
-            path.setAttribute("stroke-width", "2");
             path.setAttribute("d", `M${transformCoordinatesToString(data)}`);
 
             this.lineChart.appendChild(path);

@@ -12,6 +12,7 @@ function HorizontalBarChart() {
   this.barChartElems = [];
 
   this.draw = function (data) {
+    Chart.prototype.draw.call(this, 'HorizontalBarChart');
     let currentY = 174;
     if (this.barChartElems.length) {
       this.barChartElems.forEach((bar, index) => {

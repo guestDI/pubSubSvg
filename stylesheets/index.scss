@@ -93,6 +93,20 @@ body {
   width: 30%;
 }
 
+.line-chart {
+  .data {
+    circle {
+      transition: 0.3s all;
+    }
+  }
+
+  path {
+    fill: none;
+    stroke: red;
+    stroke-width: 2;
+  }
+}
+
 .pie-chart {
   transform: rotate(-90deg);
   background: #ddd;
