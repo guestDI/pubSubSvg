@@ -51,6 +51,7 @@ function LineChartIn() {
                 dot.setAttribute("r", radius);
                 dot.setAttribute("data-value", d["x"]);
                 this.lineChartData.appendChild(dot);
+                //TODO: change event listener to parent
                 dot.addEventListener("click", this.onDotClick);
                 this.lineDots.push(dot);
             });
