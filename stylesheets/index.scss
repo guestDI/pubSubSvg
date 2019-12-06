@@ -1,4 +1,5 @@
 $primaryColor: rgb(77, 76, 76);
+$lineChartColor: #1077e1;
 
 * {
   margin: 0;
@@ -43,6 +44,12 @@ body {
   stroke-width: 2;
 }
 
+.graph .value-lines {
+  stroke: rgba(0, 0, 0, 0.253);
+  stroke-dasharray: 5;
+  stroke-width: 1;
+}
+
 .labels {
   font-size: 13px;
 }
@@ -55,7 +62,7 @@ body {
 }
 
 .data {
-  fill: red;
+  fill: $lineChartColor;
   stroke-width: 10;
 
   circle:hover {
@@ -96,14 +103,20 @@ body {
 .line-chart {
   .data {
     circle {
-      transition: 0.3s all;
+      // fill: none;
+      stroke-width: 2;
+      stroke: $lineChartColor;
+      transition: 0.6s all;
+      opacity: 0.8;
     }
   }
 
   path {
     fill: none;
-    stroke: red;
+    stroke: $lineChartColor;
     stroke-width: 2;
+    transition: d 0.6s;
+    opacity: 0.8;
   }
 }
 
@@ -111,47 +124,13 @@ body {
   transform: rotate(-90deg);
   background: #ddd;
   border-radius: 50%;
-  // display: block;
 
-  .pie {
-    fill: #ddd;
-    // stroke: $primaryColor;
-    // stroke-width: 100;
-    // stroke-dasharray: 0 158;
-    // stroke-dashoffset: 50;
-    transition: stroke-dasharray 0.3s ease;
+  path {
+    transition: d 0.6s;
   }
 }
 
 .bar {
-  fill: #a9a9a9;
-  opacity: 0.6;
+  fill: $lineChartColor;
+  opacity: 0.3;
 }
-
-// .line {
-//   animation: change_fill 1s, popup 2s;
-// }
-
-// @keyframes reduce_radius {
-//   from {
-//     stroke-width: 2;
-//   }
-
-//   to {
-//     stroke-width: 20;
-//   }
-// }
-
-// @keyframes change_fill {
-//   0% {
-//     stroke: #49549E;
-//   }
-
-//   75% {
-//     stroke: #1bceb1;
-//   }
-
-//   100% {
-//     stroke: #1bce4f;
-//   }
-// }
